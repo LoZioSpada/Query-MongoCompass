@@ -1,0 +1,29 @@
+N.B. LE QUERY SONO BASATE SUL FILE .json IN ALLEGATO ALLA REPOSITORY
+
+1.  TROVA TUTTE LE RISORSE CON IL DATO isActive CORRISPONDENTE A TRUE:
+{"isActive": true}
+
+
+2.  TROVA TUTTE LE RISORSE CON IL DATO age MAGGIORE DI 26
+{"age": {$gt:26}}
+
+
+3. TROVA TUTTE LE RISORSE CON IL DATO age MAGGIORE DI 26 E MINORE O UGUALE A 30
+{$and:[{"age": {$gt:26}},{"age": {$lte:30}}]}
+
+
+4.  TROVA TUTTE LE RISORSE CON IL DATO eyes CHE SIA BROWN O BLUE
+{$or: [{"eyeColor": "brown"},{"eyeColor": "blue"}]}
+
+
+5.  TROVA TUTTE LE RISORSE CHE NON PRESENTANO IL DATO eyes UGUALE A GREEN
+{"eyeColor": {$ne: "green"}}
+
+
+6.  TROVA TUTTE LE RISORSE CHE NON PRESENTANO IL DATO eyes UGUALE A GREEN E NEANCHE A BLUE
+{$and: [{"eyeColor": {$ne: "green"}},{"eyeColor":{$ne: "blue"}}]}
+
+
+7. TROVA TUTTE LE RISORSE CON IL DATO COMPANY UGUALE A fitcore E RITORNA SOLO L'EMAIL
+filter: {"company": "FITCORE"}
+project: {"email": 1, "_id": 0}
